@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Club Application</title>
+
+<style>
+    body {
+        background: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        width: 340px;
+        margin: 100px auto;
+        padding: 25px;
+        background: #ffffff;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+    }
+
+    h2 {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 0.9em;
+        color: #444;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin: 6px 0 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #222;
+    }
+
+    #message, #checkboxMessage {
+        font-size: 0.85em;
+        margin-top: 8px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<form onsubmit="return validateForm()">
+
+<h2>Login</h2>
+
+<label>Username</label>
+<input type="text" id="uname" placeholder="Enter username">
+
+<label>Password</label>
+<input type="password" id="pw" placeholder="Enter password">
+
+<input type="checkbox" id="checkboxID" onclick="function_name_here()">
+<label for="checkboxID"> I agree to the terms</label>
+
+<p id="checkboxMessage"></p>
+
+<button type="submit">Login</button>
+
+<br><br>
+
+<button type="button" onclick="window.location.href='index.html'">cancel</button>
+
+<p id="message"></p>
+
+</form>
+
+</div>
+
+<script>
+
+function validateForm() {
+    let username = document.getElementById("uname").value;
+    let password = document.getElementById("pw").value;
+
+    if (username === "ladiesman217" && password === "password123") {
+        alert("Welcome ladiesman217!");
+    } else {
+        alert("Incorrect username or password.");
+    }
+
+    return false;
+}
+
+function function_name_here() {
+    let variable_name = document.getElementById("checkboxID").checked;
+
+    switch(variable_name) {
+        case true:
+            document.getElementById("checkboxMessage").innerHTML = "You accepted the terms.";
+        break;
+
+        case false:
+            document.getElementById("checkboxMessage").innerHTML = "";
+        break;
+    }
+}
+</script>
+
+</body>
+</html>
