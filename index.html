@@ -19,6 +19,7 @@
         background: #ffffff;
         border-radius: 6px;
         border: 1px solid #ddd;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     h2 {
@@ -80,7 +81,7 @@
 
 <p id="checkboxMessage"></p>
 
-<button type="button" id="loginBTN">Login</button>
+<button type="button" id="loginBTN" onclick="validateForm()">Login</button>
 
 <br><br>
 
@@ -93,23 +94,18 @@
 </div>
 
 <script>
+  let attempt_counter = 0;
 
 function validateForm() {
     let username = document.getElementById("uname").value;
-    let password = document.getElementById("pw").value;
+    let password = document.getElementById("pwd").value;
 
-  let attempt_counter = 0;
-
-
-        function authenticate(){
-            let username = document.getElementById("uname").value;
-            let pwd = document.getElementById("pwd").value;
-            let granted = "Welcome " + "ladiesman217" + "!";
+            let granted = "Welcome " + username + "!";
             let denied = "Access denied. Account locked after 3 attempts!";
 
 
         while (attempt_counter < 3) {
-        if (username === "ladiesman217" && pwd === "ladiesman217password") {
+        if (username === "ladiesman217" && password === "ladiesman217password") {
             alert(granted);
             attempt_counter = 0; // reset attempts after successful login
             document.getElementById("display").innerHTML = "";
@@ -134,11 +130,10 @@ function validateForm() {
                 document.getElementById("loginBTN").disabled = true; // disable button
             }
         }
-        authenticate();
-        return false;
-    }
+   
+    
 
-function function_name_here() {
+function validatetermshere() {
     let variable_name = document.getElementById("checkboxID").checked;
 
     switch(variable_name) {
